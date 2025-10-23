@@ -1,0 +1,59 @@
+/* -------------------------------
+   Elusiyan Mathew Eluwole Portfolio Theme (Black & White)
+   Tailwind CSS v4 — Minimal Setup
+-------------------------------- */
+
+@import "tailwindcss";
+
+/* Define base theme tokens */
+@theme {
+  /* 🎨 Colors */
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  --color-border: #e5e7eb;
+  --color-muted: #6b7280;
+  --color-accent: #000000; /* main accent color */
+
+  /* ✍️ Typography */
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Roboto", system-ui, sans-serif;
+}
+
+/* -------------------------------
+   Base Layer (global styles)
+-------------------------------- */
+@layer base {
+  html, body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-foreground;
+  }
+
+  a {
+    @apply text-accent hover:underline focus-visible:ring-2 focus-visible:ring-accent rounded;
+  }
+
+  button, input, textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent;
+  }
+}
+
+/* -------------------------------
+   Utilities (custom helpers)
+-------------------------------- */
+@layer utilities {
+  .btn-primary {
+    @apply bg-foreground text-white font-semibold rounded-lg px-4 py-2
+           hover:bg-muted transition-colors duration-200;
+  }
+
+  .chip {
+    @apply text-xs px-2.5 py-1 rounded-full border border-border bg-white text-foreground/80;
+  }
+
+  .section-border {
+    @apply border-t border-border;
+  }
+}
