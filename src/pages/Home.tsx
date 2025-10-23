@@ -54,15 +54,20 @@ export default function Home() {
             </Link>
 
             {/* Secondary (Outline) */}
+            <img
+              src={`${import.meta.env.BASE_URL}profile.jpeg`}
+              alt="Elusiyan Mathew Eluwole"
+              className="h-44 w-44 md:h-56 md:w-56 rounded-full object-cover shadow-[0_4px_16px_rgba(0,0,0,0.1)] ring-4 ring-[#4A90E2]/40 mb-6"
+            />
+
             <a
-              href="/Resume.pdf"
+              href={`${import.meta.env.BASE_URL}Resume.pdf`}
               download="Elusiyan-Mathew-Eluwole-Resume.pdf"
-              className="inline-flex items-center rounded-lg px-4 py-2 text-sm font-semibold
-                         border border-[#4A90E2] text-[#1f3b5b] hover:bg-[#eaf2fe]
-                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4A90E2] transition"
+              className="inline-flex items-center rounded-lg px-4 py-2 text-sm font-semibold border border-black text-black hover:bg-gray-100 transition"
             >
               Download Résumé
             </a>
+
 
             {/* Tertiary (Soft Fill) */}
             <Link
