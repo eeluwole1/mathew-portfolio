@@ -1,4 +1,6 @@
-export const projects = [
+import type { Project } from "../types/Project"; 
+
+export const projects: Project[] = [
   {
     id: "capstone-project",
     title: "Music Event Management API",
@@ -68,7 +70,7 @@ export const projects = [
     status: "in-progress",
     stack: ["React", "TypeScript", "TailwindCSS", "Node.js"],
     repo: "https://github.com/eeluwole1/RoyalWolesax-Web",
-    demo: "https://www.royalwolesax.com/",
+    demo: "https://royalwolesax.com/",
     category: "web",
     highlights: [
       "Represents the Royal WoleSax music and technology brand",
