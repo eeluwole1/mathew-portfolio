@@ -4,9 +4,9 @@ const skills = ["React", "TypeScript", "Node.js", "Firebase", "TailwindCSS", "AW
 
 export default function Home() {
   return (
-    <main className="bg-white text-black">
+    <main className="bg-white text-gray-400">
       {/* Hero Section */}
-      <section className="bg-[#f9fbff] text-black py-16 px-6 md:px-10 rounded-3xl shadow-sm border border-gray-200 max-w-6xl mx-auto">
+      <section className="bg-[#f9fbff] text-gray-400 py-16 px-6 md:px-10 rounded-3xl shadow-sm border border-gray-200 max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center">
           {/* Avatar */}
           <img
@@ -55,15 +55,14 @@ export default function Home() {
 
             {/* Secondary (Outline) */}
             <a
-              href="/Resume.pdf"
+              href={`${import.meta.env.BASE_URL}Resume.pdf`}
               download="Elusiyan-Mathew-Eluwole-Resume.pdf"
               className="inline-flex items-center rounded-lg px-4 py-2 text-sm font-semibold
-                         border border-[#4A90E2] text-[#1f3b5b] hover:bg-[#eaf2fe]
-                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4A90E2] transition"
+                        border border-[#4A90E2] text-[#1f3b5b] hover:bg-[#eaf2fe]
+                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4A90E2] transition"
             >
               Download Résumé
             </a>
-
             {/* Tertiary (Soft Fill) */}
             <Link
               to="/contact"
