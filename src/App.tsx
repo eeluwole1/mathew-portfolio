@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/mathew-portfolio/">
       <div className="min-h-screen flex flex-col bg-gray-50">
         <Navbar />
         <div className="flex-1">
@@ -17,7 +17,6 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
-
           </Routes>
         </div>
         <Footer />
