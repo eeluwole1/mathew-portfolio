@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 function App() {
+  console.log('BASE_URL:', import.meta.env.BASE_URL);
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen flex flex-col bg-gray-50">
