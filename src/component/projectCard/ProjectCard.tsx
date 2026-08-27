@@ -6,7 +6,7 @@ export default function ProjectCard({ p }: Props) {
   return (
     <article
       className="
-        bg-[#f6faff] border border-[#4A90E2]/15 rounded-2xl
+        h-full bg-[#f6faff] border border-[#4A90E2]/15 rounded-2xl
         shadow-sm hover:shadow-md transition
         hover:-translate-y-0.5 will-change-transform p-5 flex flex-col justify-between
       "

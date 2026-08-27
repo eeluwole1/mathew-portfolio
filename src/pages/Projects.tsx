@@ -60,7 +60,7 @@ export default function Projects() {
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
           {filtered.map((p, i) => (
-            <Reveal key={p.id} delayMs={(i % 6) * 80}>
+            <Reveal key={p.id} delayMs={(i % 6) * 80} className="h-full">
               <ProjectCard p={p} />
             </Reveal>
           ))}
