@@ -2,6 +2,21 @@ import type { Project } from "../types/Project";
 
 export const projects: Project[] = [
   {
+    id: "finance-api",
+    title: "Finance API",
+    tagline: "Enterprise-style financial services backend built with Java and Spring Boot.",
+    status: "completed",
+    stack: ["Java", "Spring Boot", "Maven", "REST API"],
+    repo: "https://github.com/eeluwole1/finance-api",
+    demo: "",
+    category: "api",
+    highlights: [
+      "Layered architecture with dedicated controller, service, repository, and DTO layers",
+      "Separate modules for accounts, authentication, beneficiaries, claims, clients, and payments",
+      "Built following Spring Boot best practices for maintainable, testable financial services"
+    ]
+  },
+  {
     id: "capstone-project",
     title: "Music Event Management API",
     tagline: "Comprehensive backend for managing music events, artists, and tickets with Firebase integration.",
@@ -34,21 +49,6 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "music-events-api",
-    title: "Music Events Management API v1.0.0",
-    tagline: "REST-ful API for managing music events with live OpenAPI documentation.",
-    status: "completed",
-    stack: ["Node.js", "Express", "OpenAPI (Swagger)", "REST API"],
-    demo: "https://eeluwole1.github.io/Music-Events-Deployment/",
-    repo: "https://github.com/eeluwole1/Music-Events-Deployment",
-    category: "api",
-    highlights: [
-      "Designed and documented a REST API for managing artists, events, and tickets",
-      "Integrated OpenAPI/Swagger UI for seamless API visualization",
-      "Deployed live documentation using GitHub Pages"
-    ]
-  },
-  {
     id: "community-support-tracker",
     title: "Community Support Tracker",
     tagline: "Web app to track and manage community support initiatives.",
@@ -67,15 +67,30 @@ export const projects: Project[] = [
     id: "royalwolesax-web",
     title: "Royal WoleSax Website",
     tagline: "Personal portfolio and music brand website built with React and Tailwind CSS.",
-    status: "in-progress",
-    stack: ["React", "TypeScript", "TailwindCSS", "Node.js"],
-    repo: "https://github.com/eeluwole1/RoyalWolesax-Web",
-    demo: "https://royalwolesax.com/",
+    status: "completed",
+    stack: ["React", "TypeScript", "TailwindCSS"],
+    repo: "https://github.com/eeluwole1/royalwolesax-web",
+    demo: "https://www.royalwolesax.com/",
     category: "web",
     highlights: [
       "Represents the Royal WoleSax music and technology brand",
       "Responsive design optimized for desktop and mobile",
-      "Currently implementing backend for contact and portfolio pages"
+      "Consumes the royalwolesax-api backend for content and authentication"
+    ]
+  },
+  {
+    id: "royalwolesax-api",
+    title: "Royal WoleSax API",
+    tagline: "Backend API powering www.royalwolesax.com — content, media, and auth.",
+    status: "completed",
+    stack: ["Node.js", "TypeScript", "Prisma", "PostgreSQL (Neon)", "JWT"],
+    repo: "https://github.com/eeluwole1/royalwolesax-api",
+    demo: "",
+    category: "api",
+    highlights: [
+      "JWT-based authentication with login, logout, and session (getMe) endpoints",
+      "Prisma ORM against a Neon PostgreSQL database",
+      "Schema-validated endpoints for events, tickets, media, music, bookings, and testimonials"
     ]
   },
   {

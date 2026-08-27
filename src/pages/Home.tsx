@@ -1,8 +1,41 @@
 import { Link } from "react-router-dom";
+import { useTypewriter } from "../hooks/useTypewriter";
+import Reveal from "../component/reveal/Reveal";
 
-const skills = ["React", "TypeScript", "Node.js", "Firebase", "TailwindCSS", "AWS"] as const;
+const skills = ["Java", "Spring Boot", "React", "TypeScript", "SQL", "Node.js", "Firebase", "TailwindCSS", "AWS"] as const;
+
+const roles = ["Software Developer", "Full-Stack Engineer", "Royal WoleSax 🎷"] as const;
+
+const experience = [
+  {
+    company: "Canada Life",
+    role: "Software Developer",
+    team: "Data Automation & Platform Engineering",
+    location: "Winnipeg, MB",
+    dates: "May 2026 – August 2026",
+    bullets: [
+      "Contributed to the development, testing, maintenance, and support of enterprise Java Spring Boot applications",
+      "Built full-stack features spanning backend services (Java, Spring Boot, REST APIs, SQL) and frontend UI (React, TypeScript)",
+      "Collaborated with developers, QA analysts, and business stakeholders in Agile sprints"
+    ]
+  },
+  {
+    company: "Ready Made Solution Inc",
+    role: "Front-End Developer",
+    team: "",
+    location: "Winnipeg, MB",
+    dates: "April 2025 – December 2025",
+    bullets: [
+      "Participated in the design, development, testing, and maintenance of client-facing software applications",
+      "Developed reusable UI components using React and TypeScript",
+      "Investigated software defects and implemented performance and usability improvements"
+    ]
+  }
+] as const;
 
 export default function Home() {
+  const typed = useTypewriter(roles);
+
   return (
     <main className="bg-white text-gray-400">
       {/* Hero Section */}
@@ -17,24 +50,35 @@ export default function Home() {
           />
 
           {/* Name */}
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-black">
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-black">
             Elusiyan Mathew Eluwole
           </h1>
 
+          {/* Typewriter role line */}
+          <div className="mt-2 min-h-[1.75rem] text-xl font-semibold text-[#4A90E2]">
+            <span aria-hidden="true">
+              {typed}
+              <span className="inline-block w-[2px] h-5 bg-[#4A90E2] ml-0.5 align-middle animate-pulse" />
+            </span>
+            <span className="sr-only">{roles.join(" · ")}</span>
+          </div>
+
           {/* Summary */}
-          <p className="mt-3 text-lg text-gray-700 max-w-2xl">
-            Full-Stack Developer — building fast, scalable web apps and APIs with{" "}
-            <span className="font-semibold text-black">React, TypeScript, Node.js</span>, and{" "}
-            <span className="font-semibold text-black">Firebase</span>. I also perform as{" "}
+          <p className="mt-4 text-lg leading-relaxed text-gray-700 max-w-2xl">
+            Software Developer with full-stack experience across{" "}
+            <span className="font-semibold text-black">Java, Spring Boot</span>, and{" "}
+            <span className="font-semibold text-black">React, TypeScript</span>, most recently building
+            enterprise applications during a co-op at{" "}
+            <span className="font-semibold text-black">Canada Life</span>. I also perform as{" "}
             <span className="font-semibold text-[#4A90E2]">Royal WoleSax</span>, blending creativity and technology.
           </p>
 
           {/* Skills */}
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
             {skills.map((s) => (
               <span
                 key={s}
-                className="text-xs px-2.5 py-1 rounded-full border border-[#4A90E2]/30 bg-white text-gray-700 hover:border-[#4A90E2]/50 transition"
+                className="text-[11px] font-medium uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#4A90E2]/30 bg-white text-gray-700 hover:border-[#4A90E2]/50 transition"
               >
                 {s}
               </span>
@@ -104,13 +148,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section className="px-6 pt-20 pb-6 max-w-2xl mx-auto">
+        <Reveal className="text-center mb-8">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#4A90E2]">Work</p>
+          <h2 className="text-3xl font-bold text-black mt-1">Experience</h2>
+        </Reveal>
+        <div className="flex flex-col gap-4">
+          {experience.map((job, i) => (
+            <Reveal
+              key={job.company}
+              delayMs={i * 100}
+              className="bg-[#f9fbff] border border-gray-200 border-l-4 border-l-[#4A90E2] rounded-2xl p-6 shadow-sm"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                <h3 className="text-xl font-bold text-black">{job.role}</h3>
+                <span className="text-sm text-gray-500 shrink-0">{job.dates}</span>
+              </div>
+              <p className="text-base font-semibold text-[#1f3b5b] mt-0.5">
+                {job.company} <span className="font-normal text-gray-500">· {job.location}</span>
+              </p>
+              {job.team && (
+                <p className="text-xs font-medium uppercase tracking-wide text-[#4A90E2] mt-2">
+                  {job.team}
+                </p>
+              )}
+              <ul className="mt-3 text-sm text-gray-700 leading-relaxed space-y-1.5 list-disc list-inside">
+                {job.bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* About Section */}
-      <section className="px-6 pb-16 pt-10 max-w-3xl mx-auto text-center">
-        <h2 className="text-xl font-semibold text-black">About</h2>
-        <p className="mt-3 text-gray-700 leading-relaxed">
-          I design and develop high-quality digital products with a passion for clean, accessible, and scalable code.
-          My work combines creativity, logic, and excellence in both technology and music.
-        </p>
+      <section className="px-6 pb-20 pt-16 max-w-3xl mx-auto">
+        <Reveal className="text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#4A90E2]">About</p>
+          <h2 className="text-3xl font-bold text-black mt-1">A bit about me</h2>
+          <p className="mt-4 text-gray-700 leading-relaxed">
+            I design and develop high-quality digital products with a passion for clean, accessible, and scalable code.
+            My work combines creativity, logic, and excellence in both technology and music.
+          </p>
+        </Reveal>
       </section>
     </main>
   );

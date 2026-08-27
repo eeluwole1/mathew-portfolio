@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { projects } from "../data/projects";
 import ProjectCard from "../component/projectCard/ProjectCard";
+import Reveal from "../component/reveal/Reveal";
 
 const TABS = ["All", "Web", "API", "School", "In Progress"] as const;
 
@@ -16,7 +17,10 @@ export default function Projects() {
   return (
     <main className="min-h-screen bg-gray-50 text-black py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <h1 className="text-4xl font-bold text-center mb-8">My Projects</h1>
+        <div className="text-center mb-8">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#4A90E2]">Work</p>
+          <h1 className="text-4xl font-bold mt-1">My Projects</h1>
+        </div>
 
         {/* Filter chips (Royal blue palette) */}
         <nav
@@ -55,8 +59,10 @@ export default function Projects() {
           aria-live="polite"
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {filtered.map((p) => (
-            <ProjectCard key={p.id} p={p} />
+          {filtered.map((p, i) => (
+            <Reveal key={p.id} delayMs={(i % 6) * 80}>
+              <ProjectCard p={p} />
+            </Reveal>
           ))}
         </div>
       </div>
