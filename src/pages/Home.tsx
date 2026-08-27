@@ -68,7 +68,7 @@ export default function Home() {
             Software Developer with full-stack experience across{" "}
             <span className="font-semibold text-black">Java, Spring Boot</span>, and{" "}
             <span className="font-semibold text-black">React, TypeScript</span>, most recently building
-            enterprise applications during a co-op at{" "}
+            enterprise applications at{" "}
             <span className="font-semibold text-black">Canada Life</span>. I also perform as{" "}
             <span className="font-semibold text-[#4A90E2]">Royal WoleSax</span>, blending creativity and technology.
           </p>
