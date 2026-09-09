@@ -3,17 +3,18 @@ import type { Project } from "../types/Project";
 export const projects: Project[] = [
   {
     id: "finance-api",
-    title: "Finance API",
-    tagline: "Enterprise-style financial services backend built with Java and Spring Boot.",
+    title: "Priscilla Trust Insurance API",
+    tagline: "Insurance and wealth-management backend — accounts, policies, claims, payments, loans, and rewards, all scoped to the client who owns them.",
     status: "completed",
-    stack: ["Java", "Spring Boot", "Maven", "REST API"],
+    stack: ["Java", "Spring Boot", "PostgreSQL", "Spring Security", "JWT", "Swagger/OpenAPI", "Azure App Service", "GitHub Actions"],
     repo: "https://github.com/eeluwole1/finance-api",
-    demo: "",
+    demo: "https://priscillatrust-api-erhqgkcygqakd9g4.canadacentral-01.azurewebsites.net/swagger-ui/index.html",
     category: "api",
     highlights: [
-      "Layered architecture with dedicated controller, service, repository, and DTO layers",
-      "Separate modules for accounts, authentication, beneficiaries, claims, clients, and payments",
-      "Built following Spring Boot best practices for maintainable, testable financial services"
+      "Ownership guard on every domain (accounts, policies, claims, payments, loans, rewards) prevents IDOR access beyond role-based auth alone",
+      "Money fields modeled as BigDecimal with fixed precision/scale instead of Double, avoiding floating-point drift in balances and premiums",
+      "JWT Bearer auth documented in Swagger UI with a working Authorize flow, plus Bean Validation on every request DTO",
+      "Deployed to Azure App Service via GitHub Actions CI/CD, backed by a managed PostgreSQL database"
     ]
   },
   {
