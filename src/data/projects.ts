@@ -79,21 +79,6 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "royalwolesax-api",
-    title: "Royal WoleSax API",
-    tagline: "Backend API powering www.royalwolesax.com — content, media, and auth.",
-    status: "completed",
-    stack: ["Node.js", "TypeScript", "Prisma", "PostgreSQL (Neon)", "JWT"],
-    repo: "https://github.com/eeluwole1/royalwolesax-api",
-    demo: "",
-    category: "api",
-    highlights: [
-      "JWT-based authentication with login, logout, and session (getMe) endpoints",
-      "Prisma ORM against a Neon PostgreSQL database",
-      "Schema-validated endpoints for events, tickets, media, music, bookings, and testimonials"
-    ]
-  },
-  {
     id: "ledgerapp-web",
     title: "LedgerApp",
     tagline: "Personal finance tracker for tracking income and expenses, built with Angular and ASP.NET Core.",
