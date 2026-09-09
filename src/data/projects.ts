@@ -94,6 +94,36 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: "ledgerapp-web",
+    title: "LedgerApp",
+    tagline: "Personal finance tracker for tracking income and expenses, built with Angular and ASP.NET Core.",
+    status: "completed",
+    stack: ["Angular", "TypeScript", "TailwindCSS", "Azure Static Web Apps"],
+    repo: "https://github.com/eeluwole1/LedgerClient",
+    demo: "https://gentle-grass-0df38ee10.3.azurestaticapps.net",
+    category: "web",
+    highlights: [
+      "Zoneless Angular 21 app — all async state (HTTP responses, form validation) flows through signals",
+      "Reusable component library: buttons, cards, confirm dialogs, and global toast notifications",
+      "JWT auth with a functional remember-me toggle (localStorage vs sessionStorage) and route guards"
+    ]
+  },
+  {
+    id: "ledgerapp-api",
+    title: "LedgerApp API",
+    tagline: "Backend API powering LedgerApp — authentication, transactions, and per-user data isolation.",
+    status: "completed",
+    stack: ["C#", "ASP.NET Core", "Entity Framework Core", "Azure SQL", "JWT"],
+    repo: "https://github.com/eeluwole1/LedgerApp",
+    demo: "https://ledgerapp-demo-bgaqbpadbzfjhegh.canadacentral-01.azurewebsites.net/swagger",
+    category: "api",
+    highlights: [
+      "Ownership checks on every query (ID + UserId) prevent IDOR access to other users' records, beyond just [Authorize]",
+      "Paginated endpoints plus a separately-aggregated summary endpoint, so dashboard totals stay accurate independent of the current page",
+      "JWT Bearer auth and EF Core migrations against Azure SQL, with CORS restricted to the deployed frontend's origin"
+    ]
+  },
+  {
     id: "mechat-app",
     title: "MeChat App",
     tagline: "Collaborative full-stack chat application with real-time messaging and user authentication.",
