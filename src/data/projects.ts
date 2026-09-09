@@ -49,21 +49,6 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "community-support-tracker",
-    title: "Community Support Tracker",
-    tagline: "Web app to track and manage community support initiatives.",
-    status: "completed",
-    stack: ["React", "TypeScript", "Firebase", "TailwindCSS"],
-    repo: "https://github.com/eeluwole1/Community-Support-Tracker",
-    demo: "",
-    category: "web",
-    highlights: [
-      "Tracks donations, volunteer hours, and event signups in real time",
-      "Implements responsive design with TailwindCSS",
-      "Collaborative project showcasing front-end development and Firebase integration"
-    ]
-  },
-  {
     id: "royalwolesax-web",
     title: "Royal WoleSax Website",
     tagline: "Personal portfolio and music brand website built with React and Tailwind CSS.",
