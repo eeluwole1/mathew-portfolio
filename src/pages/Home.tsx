@@ -21,7 +21,7 @@ const experience = [
   },
   {
     company: "Ready Made Solution Inc",
-    role: "Front-End Developer",
+    role: "Software Developer",
     team: "",
     location: "Winnipeg, MB",
     dates: "April 2025 – December 2025",
