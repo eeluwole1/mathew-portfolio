@@ -2,7 +2,12 @@ import type { Project } from "../../types/Project";
 
 type Props = { p: Project };
 
+const MAX_STACK_TAGS = 5;
+
 export default function ProjectCard({ p }: Props) {
+  const visibleStack = p.stack.slice(0, MAX_STACK_TAGS);
+  const hiddenStackCount = p.stack.length - visibleStack.length;
+
   return (
     <article
       className="
@@ -28,11 +33,11 @@ export default function ProjectCard({ p }: Props) {
           </span>
         </div>
 
-        <p className="text-sm text-[#334155] mb-3">{p.tagline}</p>
+        <p className="text-sm text-[#334155] mb-3 line-clamp-2">{p.tagline}</p>
 
         {/* tech chips */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {p.stack.map((tech) => (
+          {visibleStack.map((tech) => (
             <span
               key={tech}
               className="text-xs px-2 py-1 rounded-full
@@ -41,13 +46,21 @@ export default function ProjectCard({ p }: Props) {
               {tech}
             </span>
           ))}
+          {hiddenStackCount > 0 && (
+            <span
+              className="text-xs px-2 py-1 rounded-full
+                         bg-white text-[#1f3b5b]/70 border border-[#4A90E2]/25"
+            >
+              +{hiddenStackCount}
+            </span>
+          )}
         </div>
 
         {/* highlights */}
         {p.highlights && (
           <ul className="text-sm text-[#334155] space-y-1 list-disc list-inside">
             {p.highlights.slice(0, 3).map((point, i) => (
-              <li key={i}>{point}</li>
+              <li key={i} className="line-clamp-2">{point}</li>
             ))}
           </ul>
         )}

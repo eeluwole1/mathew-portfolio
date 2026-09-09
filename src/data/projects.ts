@@ -52,16 +52,16 @@ export const projects: Project[] = [
   {
     id: "royalwolesax-web",
     title: "Royal WoleSax Website",
-    tagline: "Personal portfolio and music brand website built with React and Tailwind CSS.",
+    tagline: "Full-stack platform for the Royal WoleSax music brand — a Next.js site backed by a custom Node.js/Express API.",
     status: "completed",
-    stack: ["React", "TypeScript", "TailwindCSS"],
+    stack: ["Next.js", "TypeScript", "TailwindCSS", "Node.js", "Express", "PostgreSQL"],
     repo: "https://github.com/eeluwole1/royalwolesax-web",
     demo: "https://www.royalwolesax.com/",
     category: "web",
     highlights: [
-      "Represents the Royal WoleSax music and technology brand",
-      "Responsive design optimized for desktop and mobile",
-      "Consumes the royalwolesax-api backend for content and authentication"
+      "Next.js frontend with a responsive design optimized for desktop and mobile",
+      "Custom Node.js/Express/Prisma API (private repo) handles bookings, RSVP ticketing with QR codes, event listings, and music/media",
+      "JWT-authenticated admin access on the API, backed by PostgreSQL (Neon)"
     ]
   },
   {
@@ -92,21 +92,6 @@ export const projects: Project[] = [
       "Ownership checks on every query (ID + UserId) prevent IDOR access to other users' records, beyond just [Authorize]",
       "Paginated endpoints plus a separately-aggregated summary endpoint, so dashboard totals stay accurate independent of the current page",
       "JWT Bearer auth and EF Core migrations against Azure SQL, with CORS restricted to the deployed frontend's origin"
-    ]
-  },
-  {
-    id: "mechat-app",
-    title: "MeChat App",
-    tagline: "Collaborative full-stack chat application with real-time messaging and user authentication.",
-    status: "in-progress",
-    stack: ["React", "TypeScript", "Firebase", "TailwindCSS", "Node.js"],
-    repo: "https://github.com/eeluwole1/meChatApp",
-    demo: "",
-    category: "web",
-    highlights: [
-      "Developed with a 4-member team using GitHub Projects and branches for sprint collaboration",
-      "Implements real-time chat and authentication using Firebase",
-      "Focuses on clean UI/UX with modular, reusable React components"
     ]
   }
 ];
