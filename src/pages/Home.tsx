@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useTypewriter } from "../hooks/useTypewriter";
 import Reveal from "../component/reveal/Reveal";
 
-const skills = ["Java", "Spring Boot", "React", "TypeScript", "SQL", "Node.js", "Firebase", "TailwindCSS", "AWS"] as const;
+const skills = ["Java", "C#", ".NET", "Spring Boot", "Angular", "React", "TypeScript", "SQL", "Node.js", "Firebase", "TailwindCSS", "AWS"] as const;
 
 const roles = ["Software Developer", "Full-Stack Engineer", "Royal WoleSax 🎷"] as const;
 
@@ -66,7 +66,7 @@ export default function Home() {
           {/* Summary */}
           <p className="mt-4 text-lg leading-relaxed text-gray-700 max-w-2xl">
             Software Developer with full-stack experience across{" "}
-            <span className="font-semibold text-black">Java, Spring Boot</span>, and{" "}
+            <span className="font-semibold text-black">Java, C#, .NET, Spring Boot, Angular</span>, and{" "}
             <span className="font-semibold text-black">React, TypeScript</span>, most recently building
             enterprise applications at{" "}
             <span className="font-semibold text-black">Canada Life</span>. I also perform as{" "}
