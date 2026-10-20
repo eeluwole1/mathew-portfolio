@@ -12,7 +12,7 @@ const experience = [
     role: "Software Developer",
     team: "Data Automation & Platform Engineering",
     location: "Winnipeg, MB",
-    dates: "May 2026 – August 2026",
+    dates: "May 2026 - August 2026",
     bullets: [
       "Contributed to the development, testing, maintenance, and support of enterprise Java Spring Boot applications",
       "Built full-stack features spanning backend services (Java, Spring Boot, REST APIs, SQL) and frontend UI (React, TypeScript)",
@@ -24,7 +24,7 @@ const experience = [
     role: "Software Developer",
     team: "",
     location: "Winnipeg, MB",
-    dates: "April 2025 – December 2025",
+    dates: "April 2025 - December 2025",
     bullets: [
       "Participated in the design, development, testing, and maintenance of client-facing software applications",
       "Developed reusable UI components using React and TypeScript",

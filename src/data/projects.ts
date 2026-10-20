@@ -2,6 +2,37 @@ import type { Project } from "../types/Project";
 
 export const projects: Project[] = [
   {
+    id: "docsequence-api",
+    title: "DocSequence API",
+    tagline: "Concurrency-safe engineering document numbering: no two engineers ever get the same number.",
+    status: "completed",
+    stack: ["C#", "ASP.NET Core 10", "Entity Framework Core", "Azure SQL", "xUnit", "Testcontainers", "Azure App Service", "GitHub Actions"],
+    repo: "https://github.com/eeluwole1/DocSequence-Api",
+    demo: "https://docsequence-api-fkdxawc9c0gjeqcc.canadacentral-01.azurewebsites.net/swagger",
+    category: "api",
+    highlights: [
+      "Atomic UPDATE…OUTPUT per-type counter: 100 parallel requests get 100 distinct, gap-free numbers",
+      "Idempotent retries with a client request key, race-safe through a unique constraint",
+      "Named database constraints as the final safeguard; failed requests roll back and consume no number",
+      "48 automated tests against a real SQL Server in Docker; deploys to Azure only after CI passes"
+    ]
+  },
+  {
+    id: "docsequence-web",
+    title: "DocSequence",
+    tagline: "Angular app that replaces a paper numbering ledger: generate, copy and trace document identifiers.",
+    status: "completed",
+    stack: ["Angular 21", "TypeScript", "TailwindCSS", "Signals", "Vitest", "Azure Static Web Apps"],
+    repo: "https://github.com/eeluwole1/DocSequence-Client",
+    demo: "https://purple-flower-04ffe8110.2.azurestaticapps.net",
+    category: "web",
+    highlights: [
+      "Retry-safe Generate flow: the same request key is reused after a failure, so no number is wasted",
+      "Filterable, paged allocation history with local times and UTC tooltips",
+      "Requirements-first: built from a written SRS with 23 acceptance criteria mapped to tests"
+    ]
+  },
+  {
     id: "finance-api",
     title: "Priscilla Trust Insurance API",
     tagline: "Insurance and wealth-management backend, scoped entirely to the client who owns it.",
@@ -52,7 +83,7 @@ export const projects: Project[] = [
   {
     id: "royalwolesax-web",
     title: "Royal WoleSax Website",
-    tagline: "Full-stack platform for the Royal WoleSax brand — Next.js and a custom Node.js API.",
+    tagline: "Full-stack platform for the Royal WoleSax brand - Next.js and a custom Node.js API.",
     status: "completed",
     stack: ["Next.js", "TypeScript", "TailwindCSS", "Node.js", "Express", "PostgreSQL"],
     repo: "https://github.com/eeluwole1/royalwolesax-web",
@@ -74,7 +105,7 @@ export const projects: Project[] = [
     demo: "https://gentle-grass-0df38ee10.3.azurestaticapps.net",
     category: "web",
     highlights: [
-      "Zoneless Angular 21 app — all async state flows through signals",
+      "Zoneless Angular 21 app - all async state flows through signals",
       "Reusable component library: buttons, cards, dialogs, and toast notifications",
       "JWT auth with a remember-me toggle and route guards"
     ]
@@ -82,7 +113,7 @@ export const projects: Project[] = [
   {
     id: "ledgerapp-api",
     title: "LedgerApp API",
-    tagline: "Backend API powering LedgerApp — auth, transactions, and per-user data isolation.",
+    tagline: "Backend API powering LedgerApp - auth, transactions, and per-user data isolation.",
     status: "completed",
     stack: ["C#", "ASP.NET Core", "Entity Framework Core", "Azure SQL", "JWT"],
     repo: "https://github.com/eeluwole1/LedgerApp",
