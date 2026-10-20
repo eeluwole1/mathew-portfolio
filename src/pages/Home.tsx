@@ -55,10 +55,10 @@ export default function Home() {
           </h1>
 
           {/* Typewriter role line */}
-          <div className="mt-2 min-h-[1.75rem] text-xl font-semibold text-[#4A90E2]">
+          <div className="mt-2 min-height: 1.75rem text-xl font-semibold text-[#4A90E2]">
             <span aria-hidden="true">
               {typed}
-              <span className="inline-block w-[2px] h-5 bg-[#4A90E2] ml-0.5 align-middle animate-pulse" />
+              <span className="inline-block width: 2px; h-5 bg-[#4A90E2] ml-0.5 align-middle animate-pulse" />
             </span>
             <span className="sr-only">{roles.join(" · ")}</span>
           </div>
