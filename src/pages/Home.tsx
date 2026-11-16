@@ -60,7 +60,7 @@ const experience: Job[] = [
     company: "Canada Life",
     role: "Software Developer (Intern)",
     team: "Data Automation & Platform Engineering",
-    location: "Winnipeg, MB",
+    location: "Winnipeg, MB · Hybrid",
     dates: "May 2026 – Aug 2026",
     summary:
       "Built and supported enterprise Java services that automate customer address changes for a national insurer.",
