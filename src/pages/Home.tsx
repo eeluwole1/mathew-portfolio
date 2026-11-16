@@ -32,9 +32,30 @@ type Job = {
   summary: string;
   bullets: string[];
   stack: string[];
+  /** Live products to link to, e.g. for self-employed work. */
+  products?: { name: string; url: string }[];
 };
 
 const experience: Job[] = [
+  {
+    company: "Zespida Technologies",
+    role: "Founder & Software Developer (Self-employed)",
+    location: "Winnipeg, MB",
+    dates: "Aug 2026 – Present",
+    summary:
+      "Building and shipping my own financial-services software end to end, from data model and security to cloud deployment.",
+    bullets: [
+      "AdvisorFlow CRM: a financial-advisory CRM on Salesforce (Household record type, 7-stage sales process, record-triggered Flow, Apex tests, Lightning Web Component) with an ASP.NET Core API and an Angular app",
+      "Secured AdvisorFlow changes with Microsoft Entra ID sign-in and an Advisor role, recording the acting advisor on every Salesforce change",
+      "Automated CI/CD with GitHub Actions: Salesforce metadata validation and all Apex tests as a least-privilege user, then deployment to Azure",
+      "LedgerApp: a personal finance app with an Angular front end and an ASP.NET Core / EF Core API on Azure SQL, with JWT auth and per-user data isolation"
+    ],
+    stack: ["Salesforce", "Apex", "LWC", "ASP.NET Core", "Angular", "Microsoft Entra ID", "Azure", "GitHub Actions"],
+    products: [
+      { name: "AdvisorFlow", url: "https://zealous-pebble-02abce610.4.azurestaticapps.net" },
+      { name: "LedgerApp", url: "https://gentle-grass-0df38ee10.3.azurestaticapps.net" }
+    ]
+  },
   {
     company: "Canada Life",
     role: "Software Developer (Intern)",
@@ -51,6 +72,20 @@ const experience: Job[] = [
       "Optimized SQL Server queries with targeted indexing, and supported releases through GitLab, Jenkins, Maven, Docker and Kubernetes"
     ],
     stack: ["Java", "Spring Boot", "Kafka", "SQL Server", "JUnit", "Mockito", "Kubernetes", "Jenkins", "GitLab"]
+  },
+  {
+    company: "Skybridge Americas Inc.",
+    role: "IT Help Desk Technician (Co-op)",
+    location: "Winnipeg, MB",
+    dates: "Jan 2026 – Apr 2026",
+    summary:
+      "Moved into the Technology Department after three years on Skybridge's customer service team, supporting staff across the US and Canada.",
+    bullets: [
+      "Delivered Tier 1 and select Tier 2 support for hardware, software and account access, managing and routing tickets within SLAs",
+      "Reviewed system alerts and logs to escalate issues before they reached users, and served as a point of contact during outages",
+      "Produced daily, weekly and monthly ticket performance reports for IT leadership and recommended improvements to SLAs and support processes"
+    ],
+    stack: ["Incident & SLA Management", "Ticketing Systems", "Troubleshooting", "IT Asset Management"]
   },
   {
     company: "Ready Made Solution Inc",
@@ -80,6 +115,17 @@ const experience: Job[] = [
     stack: ["HTML", "CSS", "JavaScript", "GitHub"]
   }
 ];
+
+/** Earlier and non-software roles, shown compactly under the main list. */
+const otherExperience = [
+  {
+    role: "Customer Service Representative",
+    company: "Skybridge Americas Inc.",
+    dates: "Nov 2022 – Dec 2025",
+    detail:
+      "Resolved customer issues with empathy, escalating complex cases appropriately, working in VMware and Citrix virtual environments."
+  }
+] as const;
 
 const education = [
   {
@@ -254,6 +300,24 @@ export default function Home() {
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
+                {job.products && (
+                  <p className="mt-3 text-sm text-gray-700">
+                    <span className="font-medium text-gray-800">Live products: </span>
+                    {job.products.map((product, j) => (
+                      <span key={product.url}>
+                        {j > 0 && <span className="text-gray-400"> · </span>}
+                        <a
+                          href={product.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium text-[#4A90E2] hover:underline underline-offset-4"
+                        >
+                          {product.name} ↗
+                        </a>
+                      </span>
+                    ))}
+                  </p>
+                )}
                 <div className="mt-4 flex flex-wrap gap-1.5" aria-label={`Technologies used at ${job.company}`}>
                   {job.stack.map((t) => (
                     <span
@@ -268,6 +332,31 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* Other experience */}
+      <section className="px-6 pt-10 max-w-3xl mx-auto" aria-labelledby="other-experience-heading">
+        <Reveal className="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3
+            id="other-experience-heading"
+            className="text-sm font-semibold uppercase tracking-wide text-[#4A90E2]"
+          >
+            Other experience
+          </h3>
+          <ul className="mt-3 space-y-3">
+            {otherExperience.map((o) => (
+              <li key={o.role + o.company}>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5">
+                  <p className="font-semibold text-black">
+                    {o.role} <span className="font-normal text-[#1f3b5b]">· {o.company}</span>
+                  </p>
+                  <span className="text-xs text-gray-500 shrink-0">{o.dates}</span>
+                </div>
+                <p className="text-sm text-gray-700 mt-0.5">{o.detail}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </section>
 
       {/* Education & Certifications */}
