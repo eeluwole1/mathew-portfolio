@@ -2,35 +2,108 @@ import { Link } from "react-router-dom";
 import { useTypewriter } from "../hooks/useTypewriter";
 import Reveal from "../component/reveal/Reveal";
 
-const skills = ["Java", "C#", ".NET", "Spring Boot", "Angular", "React", "TypeScript", "SQL", "Node.js", "Firebase", "TailwindCSS", "AWS"] as const;
+const skills = [
+  "Java",
+  "Spring Boot",
+  "C#",
+  "ASP.NET Core",
+  "Salesforce",
+  "Apex",
+  "LWC",
+  "Angular",
+  "React",
+  "TypeScript",
+  "SQL",
+  "Kafka",
+  "Azure",
+  "AWS",
+  "Docker",
+  "Kubernetes"
+] as const;
 
-const roles = ["Software Developer", "Full-Stack Engineer", "Royal WoleSax 🎷"] as const;
+const roles = ["Software Developer", "Full-Stack Engineer", "Salesforce Developer", "Royal WoleSax 🎷"] as const;
 
-const experience = [
+type Job = {
+  company: string;
+  role: string;
+  team?: string;
+  location: string;
+  dates: string;
+  summary: string;
+  bullets: string[];
+  stack: string[];
+};
+
+const experience: Job[] = [
   {
     company: "Canada Life",
-    role: "Software Developer",
+    role: "Software Developer (Intern)",
     team: "Data Automation & Platform Engineering",
     location: "Winnipeg, MB",
-    dates: "May 2026 - August 2026",
+    dates: "May 2026 – Aug 2026",
+    summary:
+      "Built and supported enterprise Java services that automate customer address changes for a national insurer.",
     bullets: [
-      "Contributed to the development, testing, maintenance, and support of enterprise Java Spring Boot applications",
-      "Built full-stack features spanning backend services (Java, Spring Boot, REST APIs, SQL) and frontend UI (React, TypeScript)",
-      "Collaborated with developers, QA analysts, and business stakeholders in Agile sprints"
-    ]
+      "Developed a Java/Spring Boot verification service for Straight Through Processing of customer address changes across 9 insurance product types, turning 5 business acceptance criteria into application logic validated by 7 JUnit/Mockito test scenarios",
+      "Integrated Spring Boot microservices with the legacy CIS mainframe through Spring JDBC and stored procedures, with exception handling and fail-safe validation",
+      "Enhanced Apache Kafka integrations and XML/XSD data contracts for asynchronous address updates and downstream OnBase processing",
+      "Investigated and resolved defects across DEV, QA and FIT using Splunk, Kubernetes logs and SQL, documenting root causes in Confluence",
+      "Optimized SQL Server queries with targeted indexing, and supported releases through GitLab, Jenkins, Maven, Docker and Kubernetes"
+    ],
+    stack: ["Java", "Spring Boot", "Kafka", "SQL Server", "JUnit", "Mockito", "Kubernetes", "Jenkins", "GitLab"]
   },
   {
     company: "Ready Made Solution Inc",
-    role: "Software Developer",
-    team: "",
-    location: "Winnipeg, MB",
-    dates: "April 2025 - December 2025",
+    role: "Full-Stack Software Developer",
+    location: "Winnipeg, MB · Remote, contract",
+    dates: "Apr 2025 – Dec 2025",
+    summary: "Delivered front-end and back-end features for Ajo Pro 3.0, a contribution-savings platform.",
     bullets: [
-      "Participated in the design, development, testing, and maintenance of client-facing software applications",
-      "Developed reusable UI components using React and TypeScript",
-      "Investigated software defects and implemented performance and usability improvements"
-    ]
+      "Built responsive, reusable customer-facing components with React, Next.js, TypeScript and Tailwind CSS",
+      "Designed admin dashboard features (data tables, modals, pagination) for internal platform operations",
+      "Developed back-end handling for payment reversals and bounced contributions in contribution-plan processing",
+      "Wrote and maintained authentication unit tests covering error handling, duplicate emails and external-service failures"
+    ],
+    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Jest"]
+  },
+  {
+    company: "Classic Systems Limited",
+    role: "Software Engineer (Freelance)",
+    location: "Nigeria",
+    dates: "Sep 2018 – Nov 2021",
+    summary: "Maintained and improved client software, with a focus on quality and security.",
+    bullets: [
+      "Investigated and resolved software defects through debugging and code analysis to improve reliability",
+      "Took part in code reviews, HTML/CSS validation and vulnerability identification",
+      "Supported deployment, testing and defect resolution with the development team on GitHub"
+    ],
+    stack: ["HTML", "CSS", "JavaScript", "GitHub"]
   }
+];
+
+const education = [
+  {
+    school: "Red River College Polytechnic",
+    credential: "Application Development & Delivery Diploma",
+    location: "Winnipeg, MB",
+    dates: "Jan 2024 – Jun 2026"
+  },
+  {
+    school: "Yaba College of Technology",
+    credential: "Higher National Diploma (HND), Computer Science",
+    location: "Lagos, Nigeria",
+    dates: "Aug 2016 – Oct 2018"
+  }
+] as const;
+
+const certifications = [
+  { name: "Platform Engineering Foundations", date: "Nov 2026" },
+  { name: "Building Angular and ASP.NET Web API Apps", date: "Sep 2026" },
+  { name: "DevSecOps Pipeline in AWS", date: "Sep 2026" },
+  { name: "Spring with GraphQL", date: "Aug 2026" },
+  { name: "AWS Academy Graduate – Cloud Foundations", date: "Dec 2025" },
+  { name: "Introduction to MongoDB", date: "Dec 2024" },
+  { name: "Cyber Security and IT Support", date: "Mar 2024" }
 ] as const;
 
 export default function Home() {
@@ -55,22 +128,23 @@ export default function Home() {
           </h1>
 
           {/* Typewriter role line */}
-          <div className="mt-2 min-height: 1.75rem text-xl font-semibold text-[#4A90E2]">
+          <div className="mt-2 min-h-7 text-xl font-semibold text-[#4A90E2]">
             <span aria-hidden="true">
               {typed}
-              <span className="inline-block width: 2px; h-5 bg-[#4A90E2] ml-0.5 align-middle animate-pulse" />
+              <span className="inline-block w-0.5 h-5 bg-[#4A90E2] ml-0.5 align-middle animate-pulse" />
             </span>
             <span className="sr-only">{roles.join(" · ")}</span>
           </div>
 
           {/* Summary */}
           <p className="mt-4 text-lg leading-relaxed text-gray-700 max-w-2xl">
-            Software Developer with full-stack experience across{" "}
-            <span className="font-semibold text-black">Java, C#, .NET, Spring Boot, Angular</span>, and{" "}
-            <span className="font-semibold text-black">React, TypeScript</span>, most recently building
-            enterprise applications at{" "}
-            <span className="font-semibold text-black">Canada Life</span>. I also perform as{" "}
-            <span className="font-semibold text-[#4A90E2]">Royal WoleSax</span>, blending creativity and technology.
+            Software Developer with enterprise financial-services experience at{" "}
+            <span className="font-semibold text-black">Canada Life</span>, building back-end services in{" "}
+            <span className="font-semibold text-black">Java, Spring Boot and Kafka</span> and full-stack apps with{" "}
+            <span className="font-semibold text-black">C#/.NET, Angular and React</span>. Most recently I built{" "}
+            <span className="font-semibold text-black">AdvisorFlow</span>, a Salesforce-backed advisory CRM with Flows,
+            Apex, Lightning Web Components and Microsoft sign-in. I also perform as{" "}
+            <span className="font-semibold text-[#4A90E2]">Royal WoleSax</span>.
           </p>
 
           {/* Skills */}
@@ -149,48 +223,106 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section className="px-6 pt-20 pb-6 max-w-2xl mx-auto">
+      <section className="px-6 pt-20 pb-6 max-w-3xl mx-auto" aria-labelledby="experience-heading">
         <Reveal className="text-center mb-8">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#4A90E2]">Work</p>
-          <h2 className="text-3xl font-bold text-black mt-1">Experience</h2>
+          <h2 id="experience-heading" className="text-3xl font-bold text-black mt-1">
+            Experience
+          </h2>
         </Reveal>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5">
           {experience.map((job, i) => (
             <Reveal
               key={job.company}
               delayMs={i * 100}
               className="bg-[#f9fbff] border border-gray-200 border-l-4 border-l-[#4A90E2] rounded-2xl p-6 shadow-sm"
             >
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <h3 className="text-xl font-bold text-black">{job.role}</h3>
-                <span className="text-sm text-gray-500 shrink-0">{job.dates}</span>
-              </div>
-              <p className="text-base font-semibold text-[#1f3b5b] mt-0.5">
-                {job.company} <span className="font-normal text-gray-500">· {job.location}</span>
-              </p>
-              {job.team && (
-                <p className="text-xs font-medium uppercase tracking-wide text-[#4A90E2] mt-2">
-                  {job.team}
+              <article>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 className="text-xl font-bold text-black">{job.role}</h3>
+                  <span className="text-sm text-gray-500 shrink-0">{job.dates}</span>
+                </div>
+                <p className="text-base font-semibold text-[#1f3b5b] mt-0.5">
+                  {job.company} <span className="font-normal text-gray-500">· {job.location}</span>
                 </p>
-              )}
-              <ul className="mt-3 text-sm text-gray-700 leading-relaxed space-y-1.5 list-disc list-inside">
-                {job.bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
+                {job.team && (
+                  <p className="text-xs font-medium uppercase tracking-wide text-[#4A90E2] mt-2">{job.team}</p>
+                )}
+                <p className="mt-3 text-sm font-medium text-gray-800">{job.summary}</p>
+                <ul className="mt-2 text-sm text-gray-700 leading-relaxed space-y-1.5 list-disc pl-5">
+                  {job.bullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+                <div className="mt-4 flex flex-wrap gap-1.5" aria-label={`Technologies used at ${job.company}`}>
+                  {job.stack.map((t) => (
+                    <span
+                      key={t}
+                      className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#eaf2fe] text-[#1f3b5b] border border-[#4A90E2]/25"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </article>
             </Reveal>
           ))}
         </div>
       </section>
 
+      {/* Education & Certifications */}
+      <section className="px-6 pt-14 pb-6 max-w-3xl mx-auto" aria-labelledby="education-heading">
+        <Reveal className="text-center mb-8">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#4A90E2]">Learning</p>
+          <h2 id="education-heading" className="text-3xl font-bold text-black mt-1">
+            Education &amp; Certifications
+          </h2>
+        </Reveal>
+        <div className="grid gap-5 md:grid-cols-2">
+          <Reveal className="bg-[#f9fbff] border border-gray-200 rounded-2xl p-6 shadow-sm">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-[#4A90E2]">Education</h3>
+            <ul className="mt-3 space-y-4">
+              {education.map((e) => (
+                <li key={e.school}>
+                  <p className="font-semibold text-black">{e.credential}</p>
+                  <p className="text-sm text-[#1f3b5b]">{e.school}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">
+                    {e.location} · {e.dates}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delayMs={100} className="bg-[#f9fbff] border border-gray-200 rounded-2xl p-6 shadow-sm">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-[#4A90E2]">Certifications</h3>
+            <ul className="mt-3 space-y-2">
+              {certifications.map((c) => (
+                <li key={c.name} className="flex items-baseline justify-between gap-3 text-sm">
+                  <span className="text-gray-800">{c.name}</span>
+                  <span className="text-xs text-gray-500 shrink-0">{c.date}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section className="px-6 pb-20 pt-16 max-w-3xl mx-auto">
+      <section className="px-6 pb-20 pt-16 max-w-3xl mx-auto" aria-labelledby="about-heading">
         <Reveal className="text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#4A90E2]">About</p>
-          <h2 className="text-3xl font-bold text-black mt-1">A bit about me</h2>
+          <h2 id="about-heading" className="text-3xl font-bold text-black mt-1">
+            A bit about me
+          </h2>
           <p className="mt-4 text-gray-700 leading-relaxed">
-            I design and develop high-quality digital products with a passion for clean, accessible, and scalable code.
-            My work combines creativity, logic, and excellence in both technology and music.
+            I like owning a feature end to end: understanding the business rule, building it cleanly, testing it
+            properly and seeing it through to production. Working in financial services taught me to care about
+            correctness, security and clear documentation as much as shipping. I use AI-assisted tools such as GitHub
+            Copilot and Claude Code to move faster, and review and test every change before it merges.
+          </p>
+          <p className="mt-3 text-gray-700 leading-relaxed">
+            Outside of code I perform on saxophone as{" "}
+            <span className="font-semibold text-[#4A90E2]">Royal WoleSax</span>.
           </p>
         </Reveal>
       </section>

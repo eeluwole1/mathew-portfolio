@@ -66,38 +66,25 @@ export default function ProjectCard({ p }: Props) {
         )}
       </div>
 
-      {/* actions */}
-      <div className="flex gap-4 mt-5">
-        {p.demo && (
+      {/* actions: live site first, then code */}
+      <div className="flex gap-2 mt-5">
+        {p.links.map((link) => (
           <a
-            href={p.demo}
+            key={link.url}
+            href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              w-full text-center rounded-xl text-sm font-medium
-              border border-[#4A90E2] text-[#1f3b5b]
-              hover:bg-[#eaf2fe] focus-visible:outline-none
-              focus-visible:ring-2 focus-visible:ring-[#4A90E2] py-2 transition
-            "
+            className={[
+              "flex-1 min-w-0 text-center rounded-xl text-sm font-medium py-2 px-2 whitespace-nowrap transition",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4A90E2]",
+              link.kind === "demo"
+                ? "border border-[#4A90E2] text-[#1f3b5b] hover:bg-[#eaf2fe]"
+                : "bg-[#4A90E2] text-white hover:bg-[#357ABD] shadow-[0_3px_10px_rgba(74,144,226,0.25)]"
+            ].join(" ")}
           >
-            Live Demo
+            {link.label}
           </a>
-        )}
-        {p.repo && (
-          <a
-            href={p.repo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              w-full text-center rounded-xl text-sm font-medium
-              bg-[#4A90E2] text-white hover:bg-[#357ABD]
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4A90E2]
-              shadow-[0_3px_10px_rgba(74,144,226,0.25)] py-2 transition
-            "
-          >
-            GitHub
-          </a>
-        )}
+        ))}
       </div>
     </article>
   );

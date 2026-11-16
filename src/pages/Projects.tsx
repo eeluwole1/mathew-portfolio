@@ -3,7 +3,7 @@ import { projects } from "../data/projects";
 import ProjectCard from "../component/projectCard/ProjectCard";
 import Reveal from "../component/reveal/Reveal";
 
-const TABS = ["All", "Web", "API", "School", "In Progress"] as const;
+const TABS = ["All", "Salesforce", "Web", "API", "School", "In Progress"] as const;
 
 export default function Projects() {
   const [tab, setTab] = useState<typeof TABS[number]>("All");
@@ -11,7 +11,7 @@ export default function Projects() {
   const filtered = useMemo(() => {
     if (tab === "All") return projects;
     if (tab === "In Progress") return projects.filter(p => p.status === "in-progress");
-    return projects.filter(p => p.category.toLowerCase() === tab.toLowerCase());
+    return projects.filter(p => p.categories.includes(tab.toLowerCase()));
   }, [tab]);
 
   return (
